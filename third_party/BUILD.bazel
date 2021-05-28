@@ -1,0 +1,12 @@
+package(default_visibility = ["//visibility:public"])
+
+# NOTE(kfeng): Group undertow dependencies into a single java_library target
+# so that it can be referenced easily by other targets.
+java_library(
+    name = "undertow",
+    exports = [
+        "@maven//:io_undertow_undertow_core",
+        "@maven//:io_undertow_undertow_servlet",
+        "@maven//:io_undertow_undertow_websockets_jsr",
+    ],
+)
