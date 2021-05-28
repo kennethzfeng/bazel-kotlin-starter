@@ -1,0 +1,13 @@
+load("@io_bazel_rules_kotlin//kotlin:kotlin.bzl", "kt_jvm_library")
+
+kt_jvm_library(
+    name = "http",
+    srcs = glob(["*.kt"]),
+)
+
+# java_binary allows optional target _deploy.jar
+java_binary(
+    name = "HttpServer",
+    main_class = "me.kfeng.http.Main",
+    runtime_deps = [":http"],
+)
